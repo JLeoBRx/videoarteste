@@ -6,9 +6,10 @@
     <title>Unity WebGL Player | Libros</title>
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
-        html{
+        html {
             height: -webkit-fill-available;
         }
+    
         body {
             margin: 0;
             padding: 0;
@@ -16,7 +17,16 @@
             min-height: -webkit-fill-available;
             width: 100vw;
             overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #d0f0ff, #f5fcff);
+            animation: backgroundFloat 15s infinite alternate ease-in-out;
         }
+    
+        @keyframes backgroundFloat {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+    
         .ctaDiv {
             display: flex;
             flex-direction: column;
@@ -27,10 +37,21 @@
             right: 0;
             top: 0;
             bottom: 0;
-            background: #fffa;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
             z-index: 99;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
+    
 </head>
 <body>
     <!--IMAGETARGETS-->
@@ -73,7 +94,7 @@
     <div id="unity-container" class="unity-mobile">
         <canvas id="unity-canvas" style="width: 100%; height: 100%; background: #0000; z-index: -99"></canvas>
         <div id="unity-loading-bar">
-            <div id="unity-logo"></div>
+        
             <div id="unity-progress-bar-empty">
                 <div id="unity-progress-bar-full"></div>
             </div>
